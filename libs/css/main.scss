@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+@media (max-width: 576px) {
+    #header {
+        font-size: 1.5em;
+    }
+    #controls {
+        height: 35% !important;
+        font-size: 0.8333em;
+    }
+    .button {
+        width: 65px !important;
+        font-size: 0.65em !important;
+    }
+    .databaseWrapper {
+        height: 65% !important;
+    }
+    #database {
+        font-size: 0.7em;
+    }
+    #editMode1 {
+        display: none !important;
+    }
+    #editMode2 {
+        display: block !important;
+    }
+    .profileTitle h2 {
+        font-size: 2em;
+    }
+    .profile {
+        width: 90% !important;
+        left: 5% !important;
+    }
+    .profile {
+        font-size: 0.75em !important;
+    }
+    .profileRow {
+        width: 100% !important;
+    }
+    .blueButton, .orangeButton {
+        height: 40px !important;
+    }
+    #authorizationPopup {
+        width: 80% !important;
+        left: 10% !important;
+        font-size: 0.8em;
+    }
+    #modifyDatabaseReturnButton {
+        font-size: 0.75em;
+    }
+    .add {
+        width: 170px !important;
+    }
+    #footer {
+        font-size: 0.7em;
+    }
+    .hideCell {
+        display: none !important;
+    }
+}
+
+@media (min-width: 576px) {
+    #editMode1 {
+        display: block !important;
+    }
+    #editMode2 {
+        display: none !important;
+    }
+}
+
+
+html, header, body {
+    font-family: 'Montserrat' !important;
+}
+
+b {
+    font-weight: 600 !important;
+}
+
+body {
+    height: 100vh;
+    background: rgb(33,147,176);
+    background: linear-gradient(29deg, rgba(33,147,176,1) 0%, rgba(109,213,237,1) 100%);
+    overflow: hidden;
+}
+
+html, body {
+    overflow: hidden !important;
+}
+
+body {
+    position: relative !important;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    color: white;
+    height: 15%;
+    width: 80%;
+    margin: 0;
+    display: flex;
+}
+
+main {
+    height: 80%;
+    background-color: whitesmoke;
+}
+
+// Control Bar
+
+#controls {
+    padding: auto;
+    width: 80%;
+    height: 20%;
+}
+
+#controls * {
+    // margin: 5px;
+    height: 35px;
+}
+
+.filterSelect {
+    width: 90% !important;
+    height: 90% !important;
+    align-self: flex-end;
+}
+
+#searchBar {
+    text-align: center;
+    width: 95% !important;
+    height: 90%;
+    align-self: flex-end;
+}
+
+.button {
+    width: 100px;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+}
+
+#searchButton, .blueButton {
+    background: rgb(33,147,176);
+    background: linear-gradient(17deg, rgba(33,147,176,1) 0%, rgba(109,213,237,1) 100%);
+}
+
+#resetButton, .orangeButton {
+    background: rgb(252,163,17);
+    background: linear-gradient(17deg, rgba(252,163,17,1) 0%, rgba(255,77,0,1) 100%);
+}
+
+.switch {
+    position: relative;
+    width: 60px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(252,163,17);
+    background: linear-gradient(17deg, rgba(252,163,17,1) 0%, rgba(255,77,0,1) 100%);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background: rgb(33,147,176);
+    background: linear-gradient(17deg, rgba(33,147,176,1) 0%, rgba(109,213,237,1) 100%);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.on {
+    display: none;
+    transform: translate(-150%,-20%);
+}
+.off {
+    transform: translate(20%,-20%);
+}
+
+.on, .off {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+}
+
+input:checked+ .slider .on {
+    display: block;
+}
+
+input:checked + .slider .off {
+    display: none;
+}
+
+.slider.round {
+    border-radius: 34px;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+// Database
+
+.databaseWrapper {
+    display: block;
+    position: relative;
+    height: 75%;
+    width: 80%;
+    overflow: auto;
+    background-color: white;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: rgba(109,213,237,0.2) !important;
+}
+
+#tableHeader {
+    cursor: default !important;
+}
+
+#database {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#tableHeader  th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(226, 226, 226);
+    border: 1px solid grey;
+}
+
+.table > tbody > tr > th, .table > thead > tr > th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.deleteEmployee {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+// Footer 
+
+#footer {
+    color: white;
+    height: 5%;
+}
+
+// Profile Page
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 85%;
+    top: 15%;
+    left: 0;
+    background-color: whitesmoke;
+    z-index: 1;
+}
+
+.profile {
+    position: fixed;
+    height: 70%;
+    width: 80%;
+    top: 20%;
+    left: 10%;
+    background: rgb(110,68,255);
+    background: linear-gradient(29deg, rgba(110,68,255,0.2) 0%, rgba(10,211,255,0.2) 100%);
+    border-radius: 10px;
+}
+
+.profileTitle {
+    position: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    height: 20%;
+}
+
+h2, h3 {
+    margin: 0 !important;
+}
+
+.profileRow {
+    margin: auto !important;
+    width: 90%;
+    height: 9%;
+}
+
+.profileRow:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.profileRow:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.profileRow * {
+    position: flex;
+    align-self: center;
+    font-size: 1em;
+    word-break: break-all;
+    width: 40%;
+}
+
+
+.profileRow h3 {
+    font-weight: 600;
+}
+
+.blueButton, .orangeButton {
+    height: 50px;
+    width: 100px;
+}
+
+// Admin Authorization
+
+#adminAuthorization, #areYouSure {
+    background-color: rgba(245, 245, 245, 0.7);
+    z-index: 2;
+}
+
+.popup {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    left: 25%;
+    background-color: whitesmoke;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+.popup div {
+    position: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#authorizationPopup div {
+    height: 25% !important;
+    padding: 0% 10%;
+}
+
+#authorizationPopup div p:first-child {
+    padding-top: 10%;
+} 
+
+#authorizationPopup div p {
+    margin: auto;
+}
+
+#exitAuthorization {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+}
+
+#passwordResponse {
+    color:rgb(255,77,0);
+}
+
+#adminSubmit {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+// Add to Database Overlay
+
+
+.add {
+    height: 22vh;
+    width: 200px;
+    margin: auto;
+    background: #6e44ff;
+    background: linear-gradient(29deg, rgba(110,68,255,0.2) 0%, rgba(10,211,255,0.2) 100%);
+    border-radius: 5px;
+}
+
+.add p {
+    margin: auto;
+    text-align: center;
+}
+
+.add .button {
+    font-size: 0.70em;
+    height: 40px;
+    width: 100px;
+}
+
+#modifyDatabaseReturnButton {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+}
+
+// Font Awesome Icons
+
+.fa-plus-circle {
+    cursor: pointer;
+    color: #0AD3FF;
+}
+
+.fa-minus-circle {
+    color: #FF4D00;
+}
+
+// Misc
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+a:focus,
+a:active,
+a:hover,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+select:focus,
+select:active,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    box-shadow: none !important;
+}
